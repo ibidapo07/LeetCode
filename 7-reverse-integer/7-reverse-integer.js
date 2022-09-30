@@ -7,9 +7,8 @@ var reverse = function(x) {
      let rev = []
      let revInt = 0
     while(Math.abs(x) >= 1){
-        let lastDigit = x%10
-        rev.push(lastDigit)
-        x = (x - lastDigit)/10
+        rev.push(x%10)
+        x = (x - (x%10))/10
     }
     
     for(let i = 0 ; i< rev.length; i++){
