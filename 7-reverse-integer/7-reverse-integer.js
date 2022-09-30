@@ -2,21 +2,24 @@
  * @param {number} x
  * @return {number}
  */
-var reverse = function(r) {
+var reverse = function(x) {
     //reversed number store
-    let number = Math.abs(r)
-    let revInt = 0
-    while(number >= 1){
-        //rev.push(number%10)
-        revInt += (number%10) * (10 ** (number.toString().length -1)) 
-        number = (number - (number%10))/10
+     let rev = []
+     let revInt = 0
+    while(Math.abs(x) >= 1){
+        rev.push(x%10)
+        x = (x - (x%10))/10
     }
-
-    if(r < 0){
-       revInt *= -1;
+    
+    for(let i = 0 ; i< rev.length; i++){
+        revInt += rev[i] * 10 ** ((rev.length - 1)-i)
+    }
+    
+    if(x < 0){
+       revInt *= -1
        }
     if((revInt < -(2 ** 31)) || (revInt > (2 ** 31) -1)){
-        return 0;
+        return 0
        }
     
     return revInt
